@@ -1,0 +1,20 @@
+.hello{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    transition: all 3s ease-in-out;
+    transition-duration: infinite;
+}
+.goodbye{
+    background-color: red;
+    width: 960px;
+    height: 200px;
+    transition: all 3s ease-out;
+    transition-duration: infinite;
+}
+#p1{
+    transition-duration: infinite;
+}
+@keyframes hello{
+
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Little Caesars Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- links to part of the page --> 
+        <nav>
+            <ul>
+                <li><a href="#delivery">Delivery or pickup</a></li>
+                <li><a href="#comments">Comment Section</a></li>
+                <li><a href="#specials">Our Specials</a></li>
+                <li><a href="#topping">Our toppings</a></li>
+            </ul>
+            <form action="#Link">
+                <!-- Login -->
+                <p>
+                Username:
+                <input type="text" name="username" size="15" maxlength="20"/>
+                </p>
+                <p>
+                Password:
+                <input type="password" name="password" size="20"/>
+                </p>
+                <input type="submit" name="submit" value="Enter">
+            </form>
+        </nav>
+        <h1 id="top" > Pizza <span class="Pizza">Pizza </span></h1>
+        <p>Always  delicious and Hot-n-Ready ,whether it's Pickup or Take-out!!</p>
+    
+    </header>
+    <div class="heroimage">
+            <div class="logo">
+                <img src="media/download.png" width="300" height="200"  alt="">
+            </div>
+    </div>
+    <main>
+        <div class="commercial">
+            <h2>Our short commercial</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/86FkcPYVTUo" frameborder="0" allow="accelerometer; autoplay;    encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="size">
+        </div>
+        <form action="#Link">
+            <div class="size">
+                <!-- Sizes and price -->
+            <h2>Size of the delicious pizza</h2>
+            <p>Please select the size of your pizza:</p>
+            <img src="media/pizza.jpg" alt="" width="250" height="175">
+                <input type="radio" name="pizza" value="small" checked='checked'>Small:$3.99
+                <input type="radio" name="pizza" value="medium" checked='checked'>Medium:$5.99
+                <input type="radio" name="pizza" value="large" checked='checked'>Large:$9.99
+                <input type="radio" name="pizza" value="extralarge" checked='checked'>XL:$12.99
+            </div>
+            <div class="quantity">
+            <p>Quantity:<input type="number" min="1" value="Quantity"></p>
+            </div>
+            <div class="toppings">
+                <h2 id="topping">Toppings</h2>
+                <p>Here you can choose out of our ten toppings,Or scoll down for    our specials.</p>
+                <p><em>Each topping is an addtional $1.09</em></p>
+                <!-- The Toppings -->
+                <img src="media/image.png" height="300" width="300"alt="">
+                <br>   
+                <select name="toppings" id="toppings" multiple="Multiple" size="6" >
+                    <option value="pepperoni">Pepperoni</option>
+                    <option value="pineapple">Pineapples</option>
+                    <option value="ham">Ham</option>
+                    <option value="cheese">Cheese</option>
+                    <option value="peppers">Peppers</option>
+                    <option value="mushrooms">Mushrooms</option>
+                    <option value="olive">Olives</option>
+                    <option value="sausage">Sausage</option>
+                    <option value="bacon">Bacon</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="tuna">Tuna</option>
+                    <option value="tomatoes">Tomatoes</option>
+                </select>
+            </div>
+            <div class="specials">
+                    <!-- Specials/drop down list -->
+                <h2 id="specials">Specials</h2>
+                <h3>Here, you will get to choose some of our specials</h3>
+                <p><em>Each special is $4.99 plus the size of the pizza.</em><p>
+                <select name="special" id="special">
+                    <option value="meat">Meaty triple threat pizza</option>
+                    <option value="veggie">Veggie supreme pizza</option>
+                    <option value="spicy">Spicy pepper pizza</option>
+                    <option value="cheese"> Extremely-Cheezy pizza</option>  
+                </select> 
+            </div>    
+            <div class="delivery">
+                <!--Delivery or pick-up/ Multiple select box -->
+                <h2 id="delivery" >Choose between delivery and Take-out</h2>
+                <h3>Do you want to waste gas or want us to waste gas?</h3>
+                <p> If you choose delivery, Place addres here:
+                <input type="text" name="user name" maxlength ="25">
+                </p>
+                <p><em>Delivery fee is $3.50.</em></p>
+                    <input type="radio" name="order" value="Delivery">Delivery
+                    <input type="radio" name="order" value="Pick-up">Take-out
+                <br>
+                    <input type="submit" name="submit" value="Click here when your done ordering">
+            </div>        
+        </form>
+    </main>
+    <footer>
+        <!-- textarea -->
+        <h2 id="comments" >Comment Section</h2>
+        <h3>Please leave your review in the box below.</h3>
+        <!-- fake comments below -->
+        <textarea name="comment" id="comment" cols="50" rows="15">Comments...</textarea>
+        <img src="media/download.jpeg"  width="300"  height="235"   >  
+        <br>
+            <input type="submit" name="submit" value="Enter">
+        </form>
+        <br>
+            <a href="#top">Top of the page.</a>
+    </footer>
+</body>
+</html>

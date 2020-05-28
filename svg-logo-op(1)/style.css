@@ -1,0 +1,70 @@
+.st0{
+	display:none;
+}
+.st1{
+	display:inline;
+}
+circle{
+	fill:none;
+	stroke:#8AC2E9;
+	stroke-width:18;
+	stroke-miterlimit:15;
+	stroke-dasharray: 4500;
+	stroke-dashoffset: 18500;
+	
+}
+path{
+	fill:#8AC2E9;
+	stroke: #8AC2E9;
+	stroke-width:10;
+	stroke-miterlimit:5;
+	stroke-dasharray: 10921;
+	stroke-dashoffset: 10921;
+
+}
+.spin{
+	animation: spin 4s linear  infinite;
+}
+@keyframes spin {
+	100%{
+		stroke-dashoffset: 700;
+	}
+
+}
+
+.path{
+	animation: dash 10s linear forwards infinite;
+}
+  @keyframes dash {
+
+	10%{
+		fill-opacity:0;
+	} 
+	20%{
+		fill-opacity:1;
+	}
+	30%{
+		fill-opacity:0;
+	}
+	40%{
+		fill-opacity:1;
+	}
+	50%{
+		fill-opacity:0;
+	}
+	60%{
+		fill-opacity:1;
+	}
+	70%{
+		fill-opacity:0;
+	}
+	80%{
+		fill-opacity:1;
+	}
+	90%{
+		fill-opacity:0;
+	}
+	100%{
+		fill-opacity:1;
+	}
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+    <div id="login">
+        <h1> Please Enter your pin number:</h1>
+        <input type="password" id="input" maxlength="4" >
+        <button id="submit">Enter</button>
+        <p id="incorrect-pin"></p>
+    </div>
+    <div id="mainscreen">
+        <h1 id="main"></h1>
+        <button  id="deposit-button">Deposit</button>
+        <button  id="withdraw-button">Withdraw</button>
+        <button  id="logout">Logout</button>
+    </div>
+    <div id="withdraw">
+        <h1 id="balance"></h1>
+        <p>How much would you like to withdraw?</p>
+        <input type="number" id="W-input" >
+        <button id="deduct">Enter</button>
+        <br>
+        <button id="backout">Back</button>
+        <p id="output1"></p>
+    </div>
+    <div id="deposit">
+        <h1 id="balance"></h1>
+        <p>How much would you like to deposit?</p>
+        <input type="number" id="D-input" >
+        <button id="add">Enter</button>
+        <br>
+        <button id="backout">Back</button>
+        <p id="output2"></p>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+CREATE TABLE actors (
+    id int auto_increment primary key,
+    fname varchar(20),
+    lname varchar(20)
+)
+
+CREATE TABLE directors (
+    id int auto_increment primary key,
+    fname varchar(20),
+    lname varchar(20)
+);
+
+CREATE TABLE genres (
+    id int auto_increment primary key,
+    genre varchar(20)
+);
+
+CREATE TABLE `genres` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `genre` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE movies(
+    id int auto_increment primary key,
+    title varchar(45),
+    year tinyint(4),
+    director_ID int not null,
+    genre_ID int not null,
+    format varchar(20),
+    rating varchar(10),
+    budget int,
+    CONSTRAINT fk_director_id FOREIGN KEY (director_id) REFERENCES directors (id),
+    CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres (id)
+);
+
+CREATE TABLE `movies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) DEFAULT NULL,
+  `year` tinyint(4) DEFAULT NULL,
+  `director_ID` int(11) DEFAULT NULL,
+  `genre_ID` int(11) DEFAULT NULL,
+  `format` varchar(20) DEFAULT NULL,
+  `rating` varchar(10) DEFAULT NULL,
+  `budget` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_director_id` (`director_ID`),
+  KEY `fk_genre_id` (`genre_ID`),
+  CONSTRAINT `fk_director_id` FOREIGN KEY (`director_ID`) REFERENCES `directors` (`id`),
+  CONSTRAINT `fk_genre_id` FOREIGN KEY (`genre_ID`) REFERENCES `genres` (`id`)
+)
+
+CREATE TABLE movie_actor(
+    movie_id int,
+    actor_id int,
+    PRIMARY KEY (movie_id,actor_id)
+);
+
+select m.title from movies m
+    join movie_actor ma on ma.movie_id = m.id
+    join actors a on ma.actor_id = a.id
+    where a.id = 1;
+
+
+select genre from genres g
+    join movies m on m.genre_id = g.id
+    join movie_actor ma on movie_id = m.id
+    join actors a on a.id = ma.actor_id
+    where a.id = 1;   
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+CREATE DATABASE CARS 
+USE cars;
+CREATE TABLE makes(
+    id int auto_increment primary key,
+    make VARCHAR(20)
+)
+
+CREATE TABLE colors(
+    id int auto_increment primary key,
+    make VARCHAR(20)
+)
+
+CREATE TABLE types(
+    id int auto_increment primary key,
+    make VARCHAR(20) 
+)
+
+CREATE TABLE cars(
+    id int auto_increment primary key,
+    model varchar(20),
+    year int(4),
+    fuel varchar(10),
+    city_mpg tinyint,
+    highway_mpg	tinyint,
+    price decimal(14,2),
+    vin	char(17),
+    'condition' varchar(10),
+    make int,
+    ex_color int,
+    in_color int,
+    type_id int,
+     CONSTRAINT fk_make_ FOREIGN KEY(make)
+    REFERENCES makes (id),
+
+    CONSTRAINT fk_ex_color FOREIGN KEY(ex_color)
+    REFERENCES colors (id),
+
+     CONSTRAINT fk_in_color FOREIGN KEY(in_color)
+    REFERENCES colors(id),
+
+    CONSTRAINT fk_type FOREIGN KEY(type_id)
+    REFERENCES types (id)
+)
+
+INSERT INTO makes (make) VALUES ('Acura'),
+('Alfa Romeo'),
+('Am General'),
+('Aston Martin'),
+('Audi'),
+('Avanti Motors'),
+('Bentley'),
+('BMW'),
+('Bugatti'),
+('Buick'),
+('Cadillac'),
+('Chevrolet'),
+('Chrysler'),
+('Daewoo'),
+('Daihatsu'),
+('Dodge'),
+('Eagle'),
+('Ferrari'),
+('FIAT'),
+('Fisker'),
+('Ford'),
+('Genesis'),
+('Geo'),
+('GMC'),
+('Honda'),
+('Hummer'),
+('Hyundai'),
+('INFINITI'),
+('International'),
+('Isuzu'),
+('Jaguar'),
+('Jeep'),
+('Karma'),
+('Kia'),
+('Koenigsegg'),
+('Lamborghini'),
+('Land Rover'),
+('Lexus'),
+('Lincoln'),
+('Lotus'),
+('Maserati'),
+('Maybach'),
+('Mazda'),
+('McLaren'),
+('Mercedes-Benz'),
+('Mercury'),
+('MINI'),
+('Mitsubishi'),
+('Morgan'),
+('Nissan'),
+('Oldsmobile'),
+('Pagani'),
+('Panoz'),
+('Peugeot'),
+('Plymouth'),
+('Pontiac'),
+('Porsche'),
+('Qvale'),
+('RAM'),
+('Rolls-Royce'),
+('Saab'),
+('Saleen'),
+('Saturn'),
+('Scion'),
+('smart'),
+('Spyker'),
+('Sterling'),
+('Subaru'),
+('Suzuki'),
+('Tesla'),
+('Toyota'),
+('Volkswagen'),
+('Volvo'),
+('Yugo');
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+
+DROP DATABASE if exists employee_directory;
+CREATE DATABASE employee_directory;
+USE employee_directory;
+
+CREATE TABLE people(
+    id int auto_increment primary key,
+    fname varchar(20),
+    lname varchar(20),
+    phone char(12),
+    email varchar(20),
+    address	text,
+    dob date,
+    gender char(1) CHECK (gender IN ('M','F','O')),
+    created_at datetime,
+    updated_at datetime default current_timestamp(),
+    deleted_at datetime
+);
+ALTER TABLE people ALTER COLUMN created_at SET DEFAULT null;
+
+DELETE RECORD
+UPDATE people set deleted_at = NOW() WHERE id = ?;
+REVERSE IT
+UPDATE people set deleted_at = NULL WHERE id = ?
+
+CREATE TABLE emergency_contact(
+    pid int,
+    pid_contact int,
+    relation varchar(20),
+    CONSTRAINT fk_pid FOREIGN KEY(pid)
+     REFERENCES people(id),
+    CONSTRAINT fk_pid_contact FOREIGN KEY(pid_contact) 
+    REFERENCES people(id)
+);
+
+CREATE TABLE company_info(
+    pid int,
+    title varchar(20),
+    office varchar(20),
+    CONSTRAINT fk_pid_info FOREIGN KEY(pid)
+     REFERENCES people(id)
+);
+
+INSERT INTO people (
+    fname,
+    lname,
+    phone,
+    email,
+    address,
+    dob,
+    gender,
+    created_at
+) VALUES (
+    'tytianna',
+    'Horton',
+    '601-123-4567',
+    'nunya@businet.com',
+    '123 Sesame Street',
+    CURRENT_DATE(),
+    'F',
+    CURRENT_TIMESTAMP()
+);
+
+insert into emergency_contact (pid,pid_contact,relation) values (1,2,'Mother');
+
+insert into  company_info (pid,title,office) values (1,'Senior Idiot','Anywhere');
+
+
+
+SELECT p.fname , p.lname,
+ci.title as title,
+ci.office as office
+FROM people p
+JOIN company_info ci ON ci.pid= p.id
+JOIN emergency_contact ec ON ec.pid = p.id
+JOIN people p2 ON p2.id = ec.pid_contact
+WHERE p.id = 1;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--Read
+SELECT * FROM people;
+
+--Create
+INSERT INTO people ( fname, lname) VALUES ('bob','jones');
+
+--updated_atUPDATE people set phone='601-456-7890', gender='M', WHERE fname='Bob';
+--Deleted
+DELETE from people where fname='Bob';
+
+--C.R.U.D
+CREATE
+-----
+READ
+----
+UPDATE
+-----
+DELETE 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+DROP DATABASE shoes;
+CREATE DATABASE shoes;
+USE shoes;
+CREATE TABLE brands (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
+);
+CREATE TABLE materials (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    material VARCHAR(20)
+);
+CREATE TABLE colors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    color VARCHAR(20)
+);
+CREATE TABLE shoe_regions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    placement VARCHAR(20)
+);
+CREATE TABLE shoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20),
+    year SMALLINT,
+    price DECIMAL,
+    qty SMALLINT,
+    `condition` VARCHAR(20),
+    style VARCHAR(20),
+    `type` VARCHAR(20),
+    brand_id INT,
+    CONSTRAINT fk_brand_id FOREIGN KEY (brand_id) REFERENCES brands(id)
+);
+CREATE TABLE shoe_material (
+    shoe_id INT,
+    material_id INT,
+    CONSTRAINT fk_shoe_id FOREIGN KEY (shoe_id) REFERENCES shoes(id),
+    CONSTRAINT fk_material_id FOREIGN KEY (material_id) REFERENCES materials(id)
+);
+CREATE TABLE shoe_region_color (
+    shoe_id INT,
+    color_id INT,
+    shoe_region_id INT,
+    CONSTRAINT fk_shoe_rc_id FOREIGN KEY (shoe_id) REFERENCES shoes(id),
+    CONSTRAINT fk_color_id FOREIGN KEY (color_id) REFERENCES colors(id),
+    CONSTRAINT fk_shoe_region_id FOREIGN KEY (shoe_region_id) REFERENCES shoe_regions(id)
+);
+
+INSERT INTO brands(name) VALUES ('A Boogie'),
+('adidas'),
+('adidas Athletics'),
+('adidas Originals'),
+('Angelus'),
+('ASICS Tiger'),
+('ASICS®'),
+('Be Spoke'),
+('Birkenstock'),
+('Blanc Noir'),
+('Bonnie Bouche'),
+('Brooks'),
+('Buffalo Boot'),
+('Champion'),
+('Chinatown Market'),
+('Columbia'),
+('Converse'),
+('Crep Protection'),
+('Crossover Culture'),
+('Diadora'),
+('Diamond'),
+('Dkny'),
+('Dr. Martens'),
+('Ellesse'),
+('Ethika'),
+('Fanatics'),
+('Fila'),
+('Foot Locker'),
+('Force Field'),
+('Funko'),
+('Herschel'),
+('Hex'),
+('Hummel'),
+('Hybrid'),
+('Ivy Park'),
+('Jason Markk'),
+('Jordan'),
+('Juicy'),
+('K-Swiss'),
+('KAPPA'),
+('Kendall+Kylie'),
+('Kidrobot'),
+('La La Anthony'),
+('Lacoste'),
+('Levi\'s'),
+('Live Life Nice'),
+('Lola Getts'),
+('Louisville Slugger'),
+('Majestic'),
+('Mitchell'),
+('Mizuno'),
+('Nautica'),
+('New Balance'),
+('New Era'),
+('Nike'),
+('Nike SB'),
+('Nike Sportswear'),
+('Nintendo'),
+('Onitsuka Tiger'),
+('Polo Ralph Lauren'),
+('PONY'),
+('PSD'),
+('PUMA'),
+('Raised'),
+('Reebok'),
+('Ripple Junction'),
+('Russell'),
+('Saucony'),
+('Sean John'),
+('Spenco'),
+('Stance'),
+('Starter'),
+('State Bags'),
+('Super Heroic'),
+('Team Edition'),
+('Thorlo'),
+('Timberland'),
+('Tommy Hilfiger'),
+('UGG'),
+('Umbro'),
+('Under Armour'),
+('Vans'),
+('Warner Elektra Atlan');
+
+
+INSERT INTO colors(color) VALUES ('red'),
+('blue'),
+('green'),
+('orange'),
+('yellow'),
+('black'),
+('white'),
+('purple'),
+('pink'),
+('dark blue'),
+('light blue'),
+('royal blue'),
+('cyan'),
+('magenta'),
+('lime green'),
+('marone'),
+('teal'),
+('indigo'),
+('gold');
+
+
+INSERT INTO  materials(material) values ('Leather'),
+('Textiles'),
+('Synthetics'),
+('Rubber'),
+('Foam');
+
+
+INSERT INTO shoe_regions(placement) values('Breast'),
+('Counter'),
+('Feather'),
+('Heel'),
+('Insole'),
+('Lining'),
+('Outsole'),
+('Puff'),
+('Quarter'),
+('Seat'),
+('Shank'),
+('Sole'),
+('Throat'),
+('Toe cap'),
+('Top Piece'),
+('Topline'),
+('Upper'),
+('Vamp'),
+('Waist'),
+('Welt');
+
+INSERT INTO shoes(id, name, year, price, qty, condition, style, type, brand_id,) values (
+
+
+)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DROP DATABASE IF exists albums_db;
+CREATE DATABASE albums_db;
+USE albums_db;
+
+CREATE TABLE genres(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    genre VARCHAR(20)
+);
+CREATE TABLE labels(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    label VARCHAR(20)
+);
+CREATE TABLE artists(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    artist VARCHAR(20)
+);
+CREATE TABLE platforms(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    platform VARCHAR(20)
+);
+CREATE TABLE awards(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    award VARCHAR(20)
+);
+CREATE TABLE albums (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    album_name varchar(20),
+    award_count SMALLINT,
+    units_sold INT,
+    year Tinyint,
+    artist_id INT,
+    genre_id INT,
+    label_id INT,
+    plaTform_id INT,
+    award_id INT,
+    CONSTRAINT fk_artist_id FOREIGN KEY (artist_id) REFERENCES artists(id),
+    CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres(id),
+    CONSTRAINT fk_label_id FOREIGN KEY (label_id) REFERENCES labels(id),
+    CONSTRAINT fk_platform_id FOREIGN KEY (platform_id) REFERENCES platforms(id),
+    CONSTRAINT fk_award_id FOREIGN KEY (award_id) REFERENCES awards(id)
+);
+
+
+
+
+
+The Beatles
+
+ 
+Rihanna
+
+ 
+Michael Jackson
+
+ 
+Elvis Presley
+
+ 
+Elton John
+
+ 
+Madonna
+
+ 
+Led Zeppelin
+
+
+People
+
+insert into people (fname, lname, phone, email, address, dob, gender, created_at)
+    values
+    ('Jacky','West', '202-555-0127', 'JWest54@hayoo.com', '1234 FairBlues ST',  '1992-09-12', 'M', CURRENT_TIMESTAMP()),
+    ('Daniel','West', '202-555-0128', 'DWestLy89@hayoo.com', '4562 GreenLakes Ln', '1973-04-23', 'M', CURRENT_TIMESTAMP()),
+    ('Samuel\'Lee','Days', '202-555-0180', 'DaysofSam@loa.com', '7107 BrairStump Ave', '2000-05-22', 'M', CURRENT_TIMESTAMP()),
+    ('Laura','Green', '202-555-0149', 'JonLau@jajano.com', '013 BoardDyle Rd', '2000-05-22', 'F', CURRENT_TIMESTAMP()),
+    ('Bobby','Hughes', '202-555-0148', 'bobtowns@jajano.com', '3425 VinePikes Ln', '1996-03-21', 'M', CURRENT_TIMESTAMP()),
+    ('Francis','Hughes', '518-555-0161', 'DanielFran@mgail.com', '392 Fairway Blvd', '1995-09-21', 'F', CURRENT_TIMESTAMP()),
+    ('Quince','Hughes', '518-555-0168', 'PceQuince330@mgail.com', '835 Cofman Road', '1979-05-17', 'M', CURRENT_TIMESTAMP()),
+    ('Madeline','Ross', '518-555-0193', 'The1stMandM@mgail.com', '3598 Smithfield Avenue', '2001-06-12', 'F', CURRENT_TIMESTAMP()),
+    ('Madeline JR','Ross', '518-555-0194', 'SwiMing42@mgail.com', '4144 Crowfield Road', '1999-01-12', 'F', CURRENT_TIMESTAMP()),
+    ('Tammy','Harris', '617-555-0168', 'SwiMing40@mgail.com', '3147 Bicetown Road','1980-07-25', 'F', CURRENT_TIMESTAMP()),
+    ('Jack JR','West', '617-555-0144', 'JDays44@mgail.com', '4157 Pratt Avenue', '1999-08-08', 'M', CURRENT_TIMESTAMP()),
+    ('Dan','Jones', '617-555-0107', 'DandyJoneses390@mjaloa.com', '26714 Owagner Lane', '1983-09-10', 'F', CURRENT_TIMESTAMP()),
+    ('Samuel','East', '617-555-0146', 'WesternSam20@mjaloa.com', '3191 Woodland Drive', '1985-10-11', 'M', CURRENT_TIMESTAMP()),
+    ('Lauran','West', '603-555-0179', 'WesternLau31@loa.com', '3165 West Fork Street', '1989-11-12', 'F', CURRENT_TIMESTAMP()),
+    ('Galligan 2nd','Pace', '603-555-0168', 'GallsPace@hayoo.com', '212 Payne Street', '1990-05-12', 'M', CURRENT_TIMESTAMP()),
+    ('Francis','Moss', '603-555-0112', 'MosyFran3@hayoo.com', '1539 Glen Street', '1995-04-30', 'M', CURRENT_TIMESTAMP()),
+    ('Quincy','Hughes', '501-555-0190', 'FancyQuin@hayoo.com', '3759 Bailey Drive', '1995-03-20', 'M', CURRENT_TIMESTAMP()),
+    ('Adeline','Daniels', '501-555-0142', 'Madamline@hayoo.com', '3903 Southern Street', '1997-04-12', 'F', CURRENT_TIMESTAMP()),
+    ('Don\'Ham','Harris', '605-555-0118', 'Jojo@jajano.com', '3375 Nelm Street', '1980-07-12', 'M', CURRENT_TIMESTAMP()),
+    ('Tony','Sven', '605-555-0103', 'Sven@loa.com', '2905 Park Avenue', '1976-05-08', 'F', CURRENT_TIMESTAMP());
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Games
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Action 
+Action-adventure 
+Adventure 
+Fighting
+First-person Shooter
+Racing
+Role-playing
+Shooter 
+Simulation 
+Strategy 
+Sports 
+Puzzle 
+Idle 
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Call of Duty Modern Warefare
+Call of Duty Modern Warefare Remastered
+Grand theft Auto v
+Skyforge
+Destiny 2
+Destiny
+Brawlhalla
+Soul Caliber VI
+Need For Speed Heat
+Shadow of Colossus
+Sonic Forces
+Neveerwinter
+Call of Duty Black Ops 4
+Fortnite
+Apex
+Minecraft
+Killing Floor 2
+Division 2
+Division
+Warframe
+Cruisine Royale
+Anthem 
+Rainbow Six Seige
+NBA 2k 19
+Sonic Mania
+Smite
+Fifa 19
+Fifa 18
+Tera
+NBA 2k 18
+NBA 2k 17
+~~~~~~~~~~~~~~~~~~~~
+DROP DATABASE IF exists games_db;
+CREATE DATABASE games_db;
+USE games_db;
+
+CREATE TABLE 
+
+~~~~~~~~~~~~
+
+
+
+
+

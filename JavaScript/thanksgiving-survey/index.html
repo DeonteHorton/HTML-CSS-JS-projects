@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to my Survey, answer my questions below to find out who you are.</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="#link" onsubmit="run()">
+                    <ol>
+                        <li>What color would you choose:
+                            <ol>
+                                <li><input type="radio" name="color" value="5">Blue</li>
+                                <li><input type="radio" name="color" value="4">Pink</li>
+                                <li><input type="radio" name="color" value="3">Yellow</li>
+                                <li><input type="radio" name="color" value="2">Orange</li>
+                                <li><input type="radio" name="color" value="1">Purple</li>
+                            </ol>
+                        </li>
+                        <li>What is your favorite sport:
+                            <ol>
+                                <li><input type="radio" name="sport" value="1">Golf</li>
+                                <li><input type="radio" name="sport" value="2">Baseball</li>
+                                <li><input type="radio" name="sport" value="3">FootBall</li>
+                                <li><input type="radio" name="sport" value="4">Soccer</li>
+                                <li><input type="radio" name="sport" value="5">BasketBall</li>
+                            </ol>
+                        </li>
+                        <li>What is you favorite car:
+                            <ol>
+                                <li><input type="radio" name="car" value="5">Ford</li>
+                                <li><input type="radio" name="car" value="4">Honda</li>
+                                <li><input type="radio" name="car" value="3">Nissan</li>
+                                <li><input type="radio" name="car" value="2">Cheve</li>
+                                <li><input type="radio" name="car" value="1">Na</li>
+                            </ol>
+                        </li>
+                        <li>What is your personality:
+                            <ol>
+                                <li><input type="radio" name="personality" value="1">Na</li>
+                                <li><input type="radio" name="personality" value="2">Na</li>
+                                <li><input type="radio" name="personality" value="3">Na</li>
+                                <li><input type="radio" name="personality" value="4">Na</li>
+                                <li><input type="radio" name="personality" value="5">Na</li>
+                            </ol>
+                        </li>
+                        <li>Blank:
+                            <ol>
+                                <li><input type="radio" name="blank" value="5">NA</li>
+                                <li><input type="radio" name="blank" value="4">NA</li>
+                                <li><input type="radio" name="blank" value="3">NA</li>
+                                <li><input type="radio" name="blank" value="2">NA</li>
+                                <li><input type="radio" name="blank" value="1">NA</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <input type="submit" name="submit">
+                    </form>
+                    <div id="output"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <script src="js/app.js"></script>
+    </footer>
+</body>
+</html>

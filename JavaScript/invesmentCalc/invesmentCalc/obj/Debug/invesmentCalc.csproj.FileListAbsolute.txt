@@ -1,0 +1,9 @@
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.csprojAssemblyReference.cache
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.Form1.resources
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.Properties.Resources.resources
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.csproj.GenerateResource.cache
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\bin\Debug\invesmentCalc.exe.config
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\bin\Debug\invesmentCalc.exe
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\bin\Debug\invesmentCalc.pdb
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.exe
+C:\Users\The Academy\Documents\hortonlessons\JavaScript\invesmentCalc\invesmentCalc\obj\Debug\invesmentCalc.pdb

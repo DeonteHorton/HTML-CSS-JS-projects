@@ -1,0 +1,11 @@
+/home/deontehorton2000/hortonlessons/test/bin/Debug/netcoreapp2.2/test.deps.json
+/home/deontehorton2000/hortonlessons/test/bin/Debug/netcoreapp2.2/test.runtimeconfig.json
+/home/deontehorton2000/hortonlessons/test/bin/Debug/netcoreapp2.2/test.runtimeconfig.dev.json
+/home/deontehorton2000/hortonlessons/test/bin/Debug/netcoreapp2.2/test.dll
+/home/deontehorton2000/hortonlessons/test/bin/Debug/netcoreapp2.2/test.pdb
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.csprojAssemblyReference.cache
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.csproj.CoreCompileInputs.cache
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.AssemblyInfoInputs.cache
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.AssemblyInfo.cs
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.dll
+/home/deontehorton2000/hortonlessons/test/obj/Debug/netcoreapp2.2/test.pdb

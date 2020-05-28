@@ -1,0 +1,24 @@
+body{
+    background: hsla(16, 100%, 50%, 0.986);
+}
+main{
+    font-size: 18px;
+}
+nav{
+    background: white;
+    position: relative;
+    z-index: 5;
+}
+nav ul{
+    list-style: none;
+    float: right;
+    color: orange;
+}
+h1{
+    text-align: center;
+    width: 40%;
+}
+#top{
+    width: 40%;
+    text-align: center;
+}

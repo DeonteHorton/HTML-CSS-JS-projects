@@ -1,0 +1,23 @@
+h1{
+    color: #000;
+}
+p{
+    font-size: 32px;
+
+}
+span{
+    font-size: 48px;
+}
+
+#login{
+    display: block;
+}
+#mainscreen{
+    display: none;
+}
+#withdraw{
+    display: none;
+}
+#deposit{
+    display: none;
+}

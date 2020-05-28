@@ -1,0 +1,1 @@
+var color = document.querySelectorAll("color";)
